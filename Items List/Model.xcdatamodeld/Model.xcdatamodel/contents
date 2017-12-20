@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17C88" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="BaseItem" representedClassName="BaseItem" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="barcode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="coverImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Book" representedClassName="Book" isAbstract="YES" parentEntity="BaseItem" syncable="YES" codeGenerationType="class">
+        <attribute name="numberOfPages" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="CookingBook" representedClassName="CookingBook" parentEntity="Book" syncable="YES" codeGenerationType="class">
+        <attribute name="mainIngridient" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Disc" representedClassName="Disc" parentEntity="BaseItem" syncable="YES" codeGenerationType="class">
+        <attribute name="content" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="EsotericBook" representedClassName="EsotericBook" parentEntity="Book" syncable="YES" codeGenerationType="class">
+        <attribute name="minimalAge" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="SoftwareDevelopmentBook" representedClassName="SoftwareDevelopmentBook" parentEntity="Book" syncable="YES" codeGenerationType="class">
+        <attribute name="programmingLanguage" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BaseItem" positionX="-9" positionY="36" width="128" height="105"/>
+        <element name="Book" positionX="-9" positionY="36" width="128" height="60"/>
+        <element name="Disc" positionX="0" positionY="45" width="128" height="75"/>
+        <element name="SoftwareDevelopmentBook" positionX="18" positionY="63" width="128" height="60"/>
+        <element name="CookingBook" positionX="36" positionY="81" width="128" height="60"/>
+        <element name="EsotericBook" positionX="54" positionY="99" width="128" height="60"/>
+    </elements>
+</model>

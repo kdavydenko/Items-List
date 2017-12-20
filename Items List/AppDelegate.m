@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "PersistentStack.h"
+#import "BaseItem+CoreDataClass.h"
+#import "ImplementStorage.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +19,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    if ([self isStorageEmpty]) {
+        [[ImplementStorage new] addItems];
+    }
+    
     return YES;
 }
 
@@ -47,5 +54,20 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)isStorageEmpty {
+    NSManagedObjectContext *moc = [[PersistentStack sharedInstance] managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    request.entity = [NSEntityDescription entityForName:@"BaseItem" inManagedObjectContext:moc];
+    
+    NSError *executeFetchError = nil;
+    NSArray<BaseItem*> *itemsArray = [moc executeFetchRequest:request error:&executeFetchError];
+    
+    if (executeFetchError) {
+        NSLog(@"[%@, %@] error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), [executeFetchError localizedDescription]);
+    }
+    
+    return [itemsArray count] ? NO : YES;
+}
 
 @end

@@ -1,15 +1,15 @@
 //
-//  ViewController.h
+//  ImplementStorage.h
 //  Items List
 //
 //  Created by KONSTANTIN DAVYDENKO on 2017-12-20.
 //  Copyright © 2017 KONSTANTIN DAVYDENKO. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface ViewController : UIViewController
+@interface ImplementStorage : NSObject
 
+- (void)addItems;
 
 @end
-
